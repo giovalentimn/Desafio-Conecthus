@@ -120,4 +120,9 @@ it('Limpar cadastro existente', () => {
     cy.contains('Cadastro removido do armazenamento local.').should('be.visible')
 })
 
+it('Voltar para página inicial', () => {
+    cy.contains('Voltar').click()
+    cy.contains('Bem-vindos ao QAPlayground').should('be.visible')
+});
+
 })

@@ -14,22 +14,7 @@ cy.window().then((win) => {
 
 })
 
-Cypress.Commands.add('aguardarPaginaCarregada', () => {
-    cy.get('input#\\:r0\\:', { timeout: 1000 }).should('be.visible');
-});
+Cypress.Commands.add('uploadArquivo', (seletor, arquivo) => {
+    cy.get(seletor).selectFile(`cypress/fixtures/files/${arquivo}`, { force: true })
+})
 
-Cypress.Commands.add('verificaToastLogin', (mensagem) => {
-cy.get('div[role="alert"]')
-    .should('be.visible')
-    .and('contain', mensagem);
-});
-
-Cypress.Commands.add('verificaToastLogout', (mensagem) => {
-cy.get('div[role="alert"]')
-    .should('be.visible')
-    .and('contain', mensagem);
-});
-
-Cypress.Commands.add('aguardarPagina', () => {
-    cy.wait(1000)
-});
